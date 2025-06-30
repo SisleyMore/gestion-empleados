@@ -17,7 +17,6 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     }
 
-    // Generar el token
     public String generateToken(String correo) {
         return Jwts.builder()
                 .setSubject(correo)
@@ -27,7 +26,6 @@ public class JwtUtil {
                 .compact();
     }
 
-    // Obtener el correo desde el token
     public String getCorreoFromToken(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(getKey())
@@ -37,7 +35,6 @@ public class JwtUtil {
                 .getSubject();
     }
 
-    // Validar si el token es correcto
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder().setSigningKey(getKey()).build().parseClaimsJws(token);
