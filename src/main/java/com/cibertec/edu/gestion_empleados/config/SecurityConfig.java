@@ -43,6 +43,8 @@ public class SecurityConfig {
         config.addAllowedOrigin("https://web-production-895a7.up.railway.app");
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");
+        config.addAllowedHeader("Authorization");
+        config.setAllowCredentials(true); 
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
