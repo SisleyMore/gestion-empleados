@@ -67,10 +67,10 @@ public class EmpleadoController {
         empleadoService.eliminar(id);
         return ResponseEntity.noContent().build();
     }
-    //@Scheduled(cron = "0 * * * * ?") // cada minuto (solo para pruebas)
+    @Scheduled(cron = "0 * * * * ?") // cada minuto (solo para pruebas)
 
     //@Scheduled(cron = "0 0 9 * * ?") // todos los días a las 9am
-    @Scheduled(cron = "0 0 8 1 * ?") // todos los meses, día 1 a las 8am
+    //@Scheduled(cron = "0 0 8 1 * ?") // todos los meses, día 1 a las 8am
     public void generarExcelMensual() throws IOException {
         List<Empleado> empleados = repo.findAll();
 
