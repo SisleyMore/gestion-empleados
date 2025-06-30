@@ -39,12 +39,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.addAllowedOrigin("http://localhost:9000");
-        config.addAllowedOrigin("https://web-production-895a7.up.railway.app");
+        config.addAllowedOriginPattern("*"); 
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");
         config.addAllowedHeader("Authorization");
-        config.setAllowCredentials(true); 
+        config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
