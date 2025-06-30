@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -97,8 +99,9 @@ public class EmpleadoController {
             carpeta.mkdir();
         }
 
-        LocalDate fecha = LocalDate.now();
-        String nombreArchivo = String.format("empleados-%s.xlsx", fecha);
+        LocalDateTime ahora = LocalDateTime.now();
+        String timestamp = ahora.format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
+        String nombreArchivo = String.format("empleados-%s.xlsx", timestamp);
         FileOutputStream out = new FileOutputStream("excel-diario/" + nombreArchivo);
         workbook.write(out);
         workbook.close();
