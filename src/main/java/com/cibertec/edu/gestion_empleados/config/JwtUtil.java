@@ -10,7 +10,7 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private final String SECRET_KEY = "clave-super-secreta-para-token-jwt-de-sisley-123456789"; // debe ser mínimo 32 caracteres
+    private final String SECRET_KEY = "clave-app-secreta-para-token-jwt-de-sisley-123456789";
     private final long EXPIRATION_TIME = 1000 * 60 * 60; // 1 hora en milisegundos
 
     private Key getKey() {
