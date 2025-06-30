@@ -39,7 +39,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("http://localhost:9000");
-        config.addAllowedOrigin("https://web-production-895a7.up.railway.app"); 
+        config.addAllowedOrigin("https://web-production-895a7.up.railway.app");
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");
 
